@@ -1,13 +1,18 @@
-import React from 'react'
-import { useState } from 'react'
+import React, {useState} from 'react'
+
 
 const Login = () => {
 
   const[email, setEmail]= useState('')
-  const [password, setpassword] = useState('')
+  const [password, setPassword] = useState('')
+
   const submitHandler = (e)=>{
     e.preventDefault()
-    console.log("form submitted")
+    console.log("email is",email)
+    console.log("password is",password)
+
+    setEmail("")
+    setPassword("")
 
   }
   return (
@@ -19,11 +24,17 @@ const Login = () => {
         }}
         className='flex flex-col items-center justify-center'>
           <input
-          onChange={()=>{
-            console.log(e.target.value)
+          value={email}
+          onChange={(e)=>{
+            setEmail(e.target.value)
           }}
           required className='outline-none bg-transparent border-2 border-emerald-600 text-xl py-3 px-5 rounded-full placeholder:text-gray-400'type="email" placeholder="Enter your email id"></input>
-          <input required className='outline-none mt-4 bg-transparent border-2 border-emerald-600 text-xl py-3 px-5 rounded-full placeholder:text-gray-400'text="password" placeholder="Enter your password"></input>
+          <input 
+          value={password}
+          onChange={(e)=>{
+            setPassword(e.target.value)
+          }}
+          required className='outline-none mt-4 bg-transparent border-2 border-emerald-600 text-xl py-3 px-5 rounded-full placeholder:text-gray-400'text="password" placeholder="Enter your password"></input>
           <button className='mt-5 text-white border-none outline-none bg-emerald-600 text-xl py-3 px-5 rounded-full placeholder:text-white'>Login</button>
         </form>
       </div>
