@@ -12,9 +12,9 @@ const App = () => {
 
   const handleLogin = (email,password)=>{
     if(email == 'admin@me.com' && password == '123'){
-      console.log("this is Admin")
+      setUser('admin')
     }else if(email == 'user@me.com' && password == '123'){
-      console.log("this is User")
+      setUser('employee')
     }else{
       alert("Invalid credentials")
     }
@@ -25,8 +25,7 @@ const App = () => {
   return (
     <>
     {!user ? <Login handleLogin={handleLogin} />:''}
-    {/* <EmployeeDashboard /> */}
-    {/* <AdminDashboard /> */}
+    {user == 'admin' ? <AdminDashboard /> : <EmployeeDashboard />}
     </>
   )
 }
