@@ -5,6 +5,8 @@ import AdminDashboard from './components/Dashboard/AdminDashboard'
 import { useEffect } from 'react'
 import { getLocaleStorage, setLocaleStorage } from './utils/localStorage'
 import { useState } from 'react'
+import { useContext } from 'react'
+import { AuthContext } from './context/AuthProvider'
 
 const App = () => {
 
@@ -19,8 +21,10 @@ const App = () => {
       alert("Invalid credentials")
     }
 
-  }  
+  }
 
+  const data = useContext(AuthContext)
+  console.log(data)
 
   return (
     <>
