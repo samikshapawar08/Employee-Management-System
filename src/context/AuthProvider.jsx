@@ -10,8 +10,8 @@ const AuthProvider = ({children}) => {
 
 
   useEffect(() => {
-    const {employee, admin}= getLocaleStorage()
-    setuserData({employee, admin})
+    const {employees, admin}= getLocaleStorage()
+    setuserData({employees, admin})
 
   
   }, [])
